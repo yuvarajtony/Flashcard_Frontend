@@ -1,0 +1,16 @@
+<form class="example-form">
+    <mat-form-field class="example-full-width" appearance="outline">
+        <mat-label>Question</mat-label>
+        <input name="question" matInput ngModel [(ngModel)]="question">
+    </mat-form-field>
+    <br>
+    <mat-form-field class="example-full-width">
+        <mat-label>Answer</mat-label>
+        <textarea name="answer" matInput ngModel [(ngModel)]="answer"
+            placeholder="type your answer here"></textarea>
+    </mat-form-field>
+    <div class="btns">
+        <button class="btn" type="submit" (click)="onSubmit()">Save</button>
+        <button mat-button mat-dialog-close class="btn">No</button>
+    </div>
+</form>

@@ -1,0 +1,73 @@
+
+<mat-toolbar class="nav-bar">
+    <span>Flash Card</span>
+    <div class="space"></div>
+    <!-- <a class="button-1" (click)="value = !value">Card/Table View</a> -->
+    <mat-slide-toggle [(ngModel)]="value" ></mat-slide-toggle>
+    <p class="toggle-text">Table view</p>
+
+    <button mat-button class="add-card" (click)="openAddDialog()">Add new card</button>
+</mat-toolbar>
+
+<br><br><br>
+
+<div class="cardview" *ngIf="!value; else elseblock">
+    <mat-card class="card">
+        <mat-card-header>
+            <mat-card-title class="question">What is 2 + 2?</mat-card-title>
+        </mat-card-header>
+        <br>
+
+        <mat-card-content>
+            <button mat-button class="btn" (click)="openAnsDialog()"> Answer </button>
+        </mat-card-content>
+
+        <mat-card-actions align="end">
+            <button mat-button class="btn" (click)="openEditDialog()">Edit</button>
+            <button mat-button class="btn" (click)="openDeleteDialog()">Delete</button>
+        </mat-card-actions>
+
+    </mat-card>
+</div>
+
+<ng-template class="tableview" #elseblock>
+    <div class="table-box mat-elevation-z8">
+        <table mat-table [dataSource]="dataSource">
+
+            <ng-container matColumnDef="position">
+                <th mat-header-cell *matHeaderCellDef> No. </th>
+                <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+            </ng-container>
+
+            <!-- Name Column -->
+            <ng-container matColumnDef="name">
+                <th mat-header-cell *matHeaderCellDef> Question </th>
+                <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+            </ng-container>
+
+            <!-- Weight Column -->
+            <ng-container matColumnDef="weight">
+                <th mat-header-cell *matHeaderCellDef></th>
+                <td mat-cell *matCellDef="let element"> <button mat-button class="btn1" (click)="openAnsDialog()">Answer</button> </td>
+            </ng-container>
+
+            <!-- Symbol Column -->
+            <ng-container matColumnDef="button1">
+                <th mat-header-cell *matHeaderCellDef></th>
+                <td mat-cell *matCellDef="let element"> <button mat-button class="btn1" (click)="openEditDialog()">Edit</button> </td>
+            </ng-container>
+
+            <ng-container matColumnDef="button2">
+                <th mat-header-cell *matHeaderCellDef></th>
+                <td mat-cell *matCellDef="let element"> <button mat-button class="btn1" (click)="openDeleteDialog()">Delete</button> </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+
+    </div>
+</ng-template>
+
+
+<br><br><br>
