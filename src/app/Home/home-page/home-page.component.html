@@ -2,9 +2,8 @@
 <mat-toolbar class="nav-bar">
     <span>Flash Card</span>
     <div class="space"></div>
-    <!-- <a class="button-1" (click)="value = !value">Card/Table View</a> -->
-    <mat-slide-toggle [(ngModel)]="value" ></mat-slide-toggle>
-    <p class="toggle-text">Table view</p>
+    <mat-slide-toggle [(ngModel)]="value"><p class="toggle-text">Table view</p>
+    </mat-slide-toggle>
 
     <button mat-button class="add-card" (click)="openAddDialog()">Add new card</button>
 </mat-toolbar>
@@ -19,12 +18,12 @@
         <br>
 
         <mat-card-content>
-            <button mat-button class="btn" (click)="openAnsDialog()"> Answer </button>
+            <button mat-button class="btn" (click)="openAnsDialog(1)"> Answer </button>
         </mat-card-content>
 
         <mat-card-actions align="end">
-            <button mat-button class="btn" (click)="openEditDialog()">Edit</button>
-            <button mat-button class="btn" (click)="openDeleteDialog()">Delete</button>
+            <button mat-button class="btn" (click)="openEditDialog(1)">Edit</button>
+            <button mat-button class="btn" (click)="openDeleteDialog(1)">Delete</button>
         </mat-card-actions>
 
     </mat-card>
@@ -34,32 +33,32 @@
     <div class="table-box mat-elevation-z8">
         <table mat-table [dataSource]="dataSource">
 
-            <ng-container matColumnDef="position">
-                <th mat-header-cell *matHeaderCellDef> No. </th>
-                <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+            <ng-container matColumnDef="slno">
+                <th mat-header-cell *matHeaderCellDef> Sl. No. </th>
+                <td mat-cell *matCellDef="let element; let i = index"> {{ i + 1 }}&#41; </td>
             </ng-container>
 
             <!-- Name Column -->
-            <ng-container matColumnDef="name">
+            <ng-container matColumnDef="question">
                 <th mat-header-cell *matHeaderCellDef> Question </th>
-                <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+                <td mat-cell *matCellDef="let element"> {{element.question}} </td>
             </ng-container>
 
             <!-- Weight Column -->
-            <ng-container matColumnDef="weight">
+            <ng-container matColumnDef="ans-btn">
                 <th mat-header-cell *matHeaderCellDef></th>
-                <td mat-cell *matCellDef="let element"> <button mat-button class="btn1" (click)="openAnsDialog()">Answer</button> </td>
+                <td mat-cell *matCellDef="let element"> <button mat-button class="btn1" (click)="openAnsDialog(element.flashcard_id)">Answer</button> </td>
             </ng-container>
 
             <!-- Symbol Column -->
-            <ng-container matColumnDef="button1">
+            <ng-container matColumnDef="edit-btn">
                 <th mat-header-cell *matHeaderCellDef></th>
-                <td mat-cell *matCellDef="let element"> <button mat-button class="btn1" (click)="openEditDialog()">Edit</button> </td>
+                <td mat-cell *matCellDef="let element"> <button mat-button class="btn1" (click)="openEditDialog(element.flashcard_id)">Edit</button> </td>
             </ng-container>
 
-            <ng-container matColumnDef="button2">
+            <ng-container matColumnDef="delete-btn">
                 <th mat-header-cell *matHeaderCellDef></th>
-                <td mat-cell *matCellDef="let element"> <button mat-button class="btn1" (click)="openDeleteDialog()">Delete</button> </td>
+                <td mat-cell *matCellDef="let element"> <button mat-button class="btn1" (click)="openDeleteDialog(element.flashcard_id)">Delete</button> </td>
             </ng-container>
 
             <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

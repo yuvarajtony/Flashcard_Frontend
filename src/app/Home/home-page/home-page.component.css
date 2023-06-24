@@ -49,14 +49,15 @@ span {
     color: #ffffff;
     font-family: 'montserrat';
     font-weight: 600;
-    font-size: 80%;
+    font-size: 17px;
     margin-left: 1%;
     margin-right: 2%;
-    margin-top: 0.8%;
+    margin-top: 15%;
+    cursor: pointer;
 }
 
 mat-slide-toggle {
-    color: #ff0000;
+    margin-right: 30px;
 }
 
 /* ------------------------------------------------------------------------------------------ */
@@ -75,14 +76,25 @@ td{
     color: #444343; 
 }
 
-.table-box {
 
-    width: 93%;
+.table-box {
+    width: 80%;
     box-sizing: border-box;
     position: relative;
-    left: 3.5%;
-    top: 3.5%;
+    margin-left: auto;
+    margin-right: auto;
+    background: rgba(217, 217, 217, 0.58);
+    box-shadow: 12px 17px 51px rgba(0, 0, 0, 0.22);
+    transition: all 0.5s;
+}
 
+.table-box:hover {
+    border: 1px solid black;
+    transform: scale(1.05);
+}
+
+.table-box:active {
+    transform: scale(0.95) rotateZ(1deg);
 }
 
 /* ------------------------------------------------------------------------------------------ */
