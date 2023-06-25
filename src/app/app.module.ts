@@ -18,6 +18,7 @@ import { AddcardDialogboxComponent } from './Home/addcard-dialogbox/addcard-dial
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HelpPageComponent } from './help-page/help-page.component';
 
 
 @NgModule({
@@ -27,7 +28,8 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
     AnswerDialogboxComponent,
     EditDialogboxComponent,
     DeleteDialogboxComponent,
-    AddcardDialogboxComponent
+    AddcardDialogboxComponent,
+    HelpPageComponent
   ],
   imports: [
     BrowserModule,

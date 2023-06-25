@@ -6,6 +6,7 @@ import { DeleteDialogboxComponent } from '../delete-dialogbox/delete-dialogbox.c
 import { AddcardDialogboxComponent } from '../addcard-dialogbox/addcard-dialogbox.component';
 import { flashcard_info, HomeServiceService } from '../home-service.service';
 import { MatTableDataSource } from '@angular/material/table';
+import { Router } from '@angular/router';
 
 
 
@@ -27,7 +28,8 @@ export class HomePageComponent implements OnInit {
     public edit_dialog: MatDialog,
     public add_dialog: MatDialog,
     public delete_dialog: MatDialog,
-    private homeservice: HomeServiceService) { }
+    private homeservice: HomeServiceService,
+    private router: Router) { }
 
   dataSource: any;
 
@@ -66,6 +68,10 @@ export class HomePageComponent implements OnInit {
     const dRef = this.delete_dialog.open(DeleteDialogboxComponent, {
       data: id
     });
+  }
+
+  helpPage(){
+    this.router.navigate(['help-page']);
   }
 
   displayedColumns: string[] = ['slno', 'question', 'ans-btn', 'edit-btn', 'delete-btn'];
