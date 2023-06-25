@@ -1,6 +1,6 @@
 
 <mat-toolbar class="nav-bar">
-    <span>Flash Card</span>
+    <span>Cardify Flash Cards</span>
     <div class="space"></div>
     <mat-slide-toggle [(ngModel)]="value"><p class="toggle-text">Table view</p>
     </mat-slide-toggle>
@@ -11,19 +11,19 @@
 <br><br><br>
 
 <div class="cardview" *ngIf="!value; else elseblock">
-    <mat-card class="card">
+    <mat-card class="card" *ngFor="let flashcard of flashcards">
         <mat-card-header>
-            <mat-card-title class="question">What is 2 + 2?</mat-card-title>
+            <mat-card-title class="question">{{flashcard.question}}</mat-card-title>
         </mat-card-header>
         <br>
 
         <mat-card-content>
-            <button mat-button class="btn" (click)="openAnsDialog(1)"> Answer </button>
+            <button mat-button class="btn" (click)="openAnsDialog(flashcard.flashcard_id)"> Answer </button>
         </mat-card-content>
 
         <mat-card-actions align="end">
-            <button mat-button class="btn" (click)="openEditDialog(1)">Edit</button>
-            <button mat-button class="btn" (click)="openDeleteDialog(1)">Delete</button>
+            <button mat-button class="btn" (click)="openEditDialog(flashcard.flashcard_id)">Edit</button>
+            <button mat-button class="btn" (click)="openDeleteDialog(flashcard.flashcard_id)">Delete</button>
         </mat-card-actions>
 
     </mat-card>

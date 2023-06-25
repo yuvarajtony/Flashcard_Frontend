@@ -35,6 +35,7 @@
 
 .btn:hover {
     color: white;
+    border: 2px black solid;
 }
 
 .btn:after {

@@ -27,7 +27,7 @@ span {
     border: none;
     font-family: 'montserrat';
     font-weight: 600;
-    font-size: 80%;
+    font-size: 17px;
     margin-left: 1%;
     margin-right: 2%;
     margin-top: 0.2%;
@@ -113,7 +113,7 @@ td{
     text-align: center;
     transition: all 0.5s;
     color: black;
-    margin-bottom: 3%;
+    margin-bottom: 5%;
 }
 
 .card:hover {
@@ -153,6 +153,7 @@ td{
 
 .btn:hover {
     color: white;
+    border: 2px black solid;
 }
 
 .btn:after {
@@ -197,6 +198,7 @@ td{
 
 .btn1:hover {
     color: white;
+    border: 2px black solid;
 }
 
 .btn1:after {
